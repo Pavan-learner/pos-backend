@@ -11,7 +11,13 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:5173', 'https://your-frontend-domain.com']; // Add frontend origins
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 // * this will help to convert the incoming data from the frontend to JSON format
 app.use(bodyParser.json());
