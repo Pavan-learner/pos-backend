@@ -11,10 +11,8 @@ dotenv.config();
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173', 'https://your-frontend-domain.com']; // Add frontend origins
-
 app.use(cors({
-  origin: allowedOrigins,
+  origin: ["http://localhost:5173"],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
